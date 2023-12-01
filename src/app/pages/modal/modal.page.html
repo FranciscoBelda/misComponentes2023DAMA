@@ -1,0 +1,73 @@
+<app-header titulo="Bienveni2 {{usuario.nombre || ''}}"></app-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+ <h3>{{message}}</h3>
+  <ion-button id="open-modal" expand="block">Open</ion-button>
+  <ion-item-divider></ion-item-divider>
+
+  <p><strong>Nombre: </strong>{{usuario.nombre}}</p>
+  <p><strong>Email: </strong>{{usuario.email}}</p>
+  <p><strong>Ciudad: </strong>{{usuario.ciudad}}</p>
+
+  <ion-modal trigger="open-modal"
+             (willDismiss)="onWillDismiss($event)">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Cancel</ion-button>
+          </ion-buttons>
+          <ion-title>Bienvenido {{usuario.nombre}}!!!</ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content class="ion-padding">
+        <form #formulario="ngForm" (ngSubmit)="onSubmitTemplate()">
+          <ion-list>
+            <ion-list-header>
+              <ion-label>
+                Formulario template: Valid
+                <span [ngClass]="{'red': formulario.invalid,
+                'green': formulario.valid}">
+                  {{formulario.valid}}
+                </span>
+              </ion-label>
+            </ion-list-header>
+            <ion-item>
+              <ion-input label="Nombre" labelPlacement="floating"
+                         mode="md" type="text"
+                         name="nombre"
+                         [(ngModel)]="usuario.nombre"
+                         minlength="4"
+                         required="true"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input  label="Email"
+                          labelPlacement="floating"
+                          mode="md" type="email"
+                         name="email"
+                         [(ngModel)]="usuario.email"
+                          errorText="Invalid email"
+                         pattern="^([a-zA-Z0-9\.]+)@([a-zA-Z0-9]+)\.([a-zA-Z]{2,5})$"
+                         required="true"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input label="Ciudad"
+                         labelPlacement="floating"
+                         mode="md" type="ciudad"
+                         name="ciudad"
+                         [(ngModel)]="usuario.ciudad"
+                         minlength="2"
+                         required="true"></ion-input>
+            </ion-item>
+          </ion-list>
+          <ion-button expand="full" type="submit"
+                      [disabled]="formulario.invalid">
+            Enviar
+          </ion-button>
+        </form>
+      </ion-content>
+
+    </ng-template>
+  </ion-modal>
+</ion-content>

@@ -1,0 +1,19 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-title class="ion-text-center" color="danger"><h2>Mi App</h2></ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button menu="primerMenu" color="danger"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+<ion-list>
+  <ion-list-header color="danger">Mis componentes</ion-list-header>
+  <ion-item [routerLink]="componente.ruta"
+    *ngFor="let componente of componentes">
+    <ion-icon slot="start" [name]="componente.icono"></ion-icon>
+    <ion-label>{{componente.nombre}}</ion-label>
+  </ion-item>
+</ion-list>
+</ion-content>

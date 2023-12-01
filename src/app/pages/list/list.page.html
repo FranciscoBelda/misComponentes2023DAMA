@@ -1,0 +1,69 @@
+<app-header titulo="Listas Sliding y Reorder"></app-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <ion-list>
+    <ion-list-header>
+      <h2>Lista 1</h2>
+    </ion-list-header>
+    <ion-item *ngFor="let usuario of usuarios">
+      <ion-avatar slot="start">
+        <ion-img src="/assets/images/chibi.jpg"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        <h2>{{usuario.name}}</h2>
+        <p>{{usuario.address.street}}, {{usuario.address.city}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list #lista>
+    <ion-list-header>
+      <h2>Lista 2 - Sliding</h2>
+    </ion-list-header>
+    <ion-item-sliding *ngFor="let usuario of usuarios">
+      <ion-item>
+        <ion-label>
+          <h3>{{usuario.name}}</h3>
+          <p>{{usuario.email}}</p>
+        </ion-label>
+        <ion-label slot="end" class="ion-text-right">
+          {{usuario.phone}}
+        </ion-label>
+      </ion-item>
+      <ion-item-options side="start">
+        <ion-item-option color="danger" (click)="favorite(usuario)">
+          <ion-icon name="heart" slot="icon-only"></ion-icon>
+        </ion-item-option>
+        <ion-item-option color="secondary" (click)="share(usuario)">
+          <ion-icon name="share-social" slot="icon-only"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+      <ion-item-options side="end">
+        <ion-item-option color="success" (click)="call(usuario)">
+          <ion-icon name="call" slot="icon-only"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      <h2>Lista 3 - Reorder</h2>
+    </ion-list-header>
+    <ion-toggle [(ngModel)]="habilitado"></ion-toggle>
+    <ion-reorder-group (ionItemReorder)="reordenar($event)"
+      [disabled]="!habilitado">
+      <ion-item *ngFor="let usuario of usuarios">
+        <ion-avatar slot="start">
+          <ion-img src="/assets/images/chibi.jpg"></ion-img>
+        </ion-avatar>
+        <ion-label>
+          <h2>{{usuario.name}}</h2>
+          <p>{{usuario.company.name}}</p>
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+    </ion-reorder-group>
+  </ion-list>
+</ion-content>

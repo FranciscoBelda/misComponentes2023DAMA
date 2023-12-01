@@ -1,0 +1,23 @@
+<app-header titulo="Slides 2"></app-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <swiper-container [slidesPerView]="4.5"
+                    [separator]="10">
+    <swiper-slide (click)="swiperClick($event, element)"
+                  *ngFor="let element of
+    ['Chibi1','Chibi2','Chibi3','Chibi4','Chibi5',
+    'Chibi6','Chibi7','Chibi8']">
+      <ion-avatar class="ion-avatar">
+        <ion-img src="/assets/images/chibi.jpg"></ion-img>
+        <!--<ion-img src="/assets/shapes.svg"></ion-img>-->
+      </ion-avatar>
+      <ion-label>
+        <p class="ion-text-center">{{element}}</p>
+      </ion-label>
+    </swiper-slide>
+  </swiper-container>
+
+  <h2 class="ion-text-center">Página de Slides</h2>
+
+</ion-content>

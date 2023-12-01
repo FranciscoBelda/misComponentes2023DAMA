@@ -1,0 +1,23 @@
+<app-header titulo="Slides"></app-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <swiper-container pagination="true">
+    <swiper-slide class="slide-full" *ngFor="let slide of slides">
+     <ion-card mode="ios">
+        <img [src]="slide.img" class="slide-image" alt="slide">
+        <ion-card-header>
+          <ion-card-title>
+            {{slide.titulo}}
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          {{slide.desc}}
+        </ion-card-content>
+      </ion-card>
+
+
+
+    </swiper-slide>
+  </swiper-container>
+</ion-content>
