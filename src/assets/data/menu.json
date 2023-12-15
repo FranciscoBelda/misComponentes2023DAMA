@@ -83,5 +83,20 @@
     "nombre": "Progress Bar",
     "icono": "code-working",
     "ruta": "/progress-bar"
+  },
+  {
+    "nombre": "Ejercicio 01",
+    "icono": "planet",
+    "ruta": "/ejercicio01"
+  },
+  {
+    "nombre": "Search",
+    "icono": "search",
+    "ruta": "/search-bar"
+  },
+  {
+    "nombre": "Datetime",
+    "icono": "calendar-number",
+    "ruta": "/datetime"
   }
 ]

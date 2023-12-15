@@ -1,0 +1,14 @@
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <ion-accordion-group>
+    <ion-accordion>
+      <ion-item slot="header" color="primary">
+        <ion-label>{{post.title}}</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        {{post.body}}
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+
+</ion-content>

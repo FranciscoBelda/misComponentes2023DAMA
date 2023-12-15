@@ -83,6 +83,22 @@ const routes: Routes = [
     path: 'progress-bar',
     loadChildren: () => import('./pages/progress-bar/progress-bar.module').then( m => m.ProgressBarPageModule)
   },
+  {
+    path: 'ejercicio01',
+    loadChildren: () => import('./pages/ejercicio01/ejercicio01/ejercicio01.module').then( m => m.Ejercicio01PageModule)
+  },
+  {
+    path: 'ejercicio01-popover',
+    loadChildren: () => import('./pages/ejercicio01/ejercicio01-popover/ejercicio01-popover.module').then( m => m.Ejercicio01PopoverPageModule)
+  },
+  {
+    path: 'search-bar',
+    loadChildren: () => import('./pages/search-bar/search-bar.module').then( m => m.SearchBarPageModule)
+  },
+  {
+    path: 'datetime',
+    loadChildren: () => import('./pages/datetime/datetime.module').then( m => m.DatetimePageModule)
+  },
 ];
 
 @NgModule({
