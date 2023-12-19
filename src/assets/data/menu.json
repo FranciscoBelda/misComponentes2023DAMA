@@ -98,5 +98,10 @@
     "nombre": "Datetime",
     "icono": "calendar-number",
     "ruta": "/datetime"
+  },
+  {
+    "nombre": "SearchBar 2",
+    "icono": "search-outline",
+    "ruta": "/search-bar2"
   }
 ]

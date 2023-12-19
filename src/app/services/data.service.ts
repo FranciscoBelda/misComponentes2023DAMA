@@ -7,6 +7,7 @@ import {environment} from "../../environments/environment";
 import {ApiPelicula} from "../common/peliculas";
 import {Post} from "../common/Post";
 import {Album} from "../common/Album";
+import {InfoResultRandomUsers} from "../common/randomUser";
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +37,9 @@ export class DataService {
   getAlbums(): Observable<Album[]>{
     return this.http.get<Album[]>(
       'https://jsonplaceholder.typicode.com/albums');
+  }
+  getUsers(): Observable<InfoResultRandomUsers>{
+    return this.http.get<InfoResultRandomUsers>(
+      'https://randomuser.me/api/?results=100&seed=Progresa');
   }
 }

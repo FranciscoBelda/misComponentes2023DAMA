@@ -99,6 +99,10 @@ const routes: Routes = [
     path: 'datetime',
     loadChildren: () => import('./pages/datetime/datetime.module').then( m => m.DatetimePageModule)
   },
+  {
+    path: 'search-bar2',
+    loadChildren: () => import('./pages/search-bar2/search-bar2.module').then( m => m.SearchBar2PageModule)
+  },
 ];
 
 @NgModule({
